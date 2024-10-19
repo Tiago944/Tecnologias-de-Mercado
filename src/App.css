@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,38 @@
 
 .read-the-docs {
   color: #888;
+}
+ */
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 50px;
+  background: rgb(75, 75, 75);
+}
+
+header ul {
+  display: flex;
+  gap: 15px;
+  font-size: 1.2em;
+}
+
+header ul li {
+  list-style-type: none;
+}
+
+header ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+header ul li a.active {
+  text-decoration: underline;
+}
+
+section {
+  margin: 0 8px;
 }
