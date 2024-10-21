@@ -1,9 +1,16 @@
+import { useEffect, useState } from "react";
+import Banner from "../components/Home/Banner";
 import Layout from "../components/Layout";
+import useFetch from "../hooks/useFetch";
 
 const Homepage = () => {
+  const [data, isLoading, errorMessange] = useFetch(
+    "https://moviesfunctionapp.azurewebsites.net/api/GetHeadline"
+  );
+
   return (
     <Layout>
-      <h1>Home</h1>
+      <Banner data={data} isLoading={isLoading} errorMens={errorMessange} />
     </Layout>
   );
 };

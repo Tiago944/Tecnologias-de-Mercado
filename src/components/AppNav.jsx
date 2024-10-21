@@ -2,15 +2,15 @@ import { NavLink } from "react-router-dom";
 
 const AppNav = () => {
   return (
-    <ul>
+    <ul className="list-links">
       <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/">Explore</NavLink>
+        <NavLink to="/">Movies</NavLink>
       </li>
       <li>
         <NavLink to="/">Wishlist</NavLink>
+      </li>
+      <li>
+        <NavLink to="/">Reviews</NavLink>
       </li>
     </ul>
   );
