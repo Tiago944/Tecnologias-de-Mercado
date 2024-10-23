@@ -146,3 +146,43 @@ footer {
 .footer-nav ul {
   order: -1;
 }
+
+.comments {
+  display: flex;
+  padding: 10px;
+  flex-wrap: wrap;
+  gap: 5rem;
+  margin: auto;
+}
+
+.comment-comp {
+  max-width: 600px;
+}
+
+.comment-comp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.comment-comp-header h2 {
+  margin-bottom: 0;
+}
+
+.comment-comp-rating {
+  padding: 5px;
+  background: orange;
+}
+
+.comment-comp-rating p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.comment-comp h3 {
+  font-weight: bold;
+}
+
+.comment-comp-info {
+  color: rgb(82, 82, 82);
+  font-style: italic;
+}
