@@ -186,3 +186,22 @@ footer {
   color: rgb(82, 82, 82);
   font-style: italic;
 }
+
+.movie-page {
+  display: flex;
+}
+
+.movie-page ul {
+  padding: 0;
+}
+
+.movie-page ul li {
+  list-style: none;
+}
+
+.movies-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1400px;
+}
