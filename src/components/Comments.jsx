@@ -9,6 +9,7 @@ const Comments = ({ url }) => {
       {isLoading && <p>Is Loading</p>}
       {errorMessange && <p>{errorMessange}</p>}
       {data &&
+        data.length !== 0 &&
         data.map((review) => (
           <Comment
             title={review.title}
@@ -21,6 +22,7 @@ const Comments = ({ url }) => {
             lastName={review.last_name}
           />
         ))}
+      {data && data.length === 0 && <p>No reviews</p>}
     </div>
   );
 };

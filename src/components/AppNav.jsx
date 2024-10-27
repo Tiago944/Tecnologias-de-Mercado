@@ -4,13 +4,13 @@ const AppNav = () => {
   return (
     <ul className="list-links">
       <li>
-        <NavLink to="movies">Movies</NavLink>
+        <NavLink to="/movies">Movies</NavLink>
       </li>
       <li>
-        <NavLink to="/">Wishlist</NavLink>
+        <NavLink to="/wishlist">Wishlist</NavLink>
       </li>
       <li>
-        <NavLink to="/">Reviews</NavLink>
+        <NavLink to="/reviews">Reviews</NavLink>
       </li>
     </ul>
   );
