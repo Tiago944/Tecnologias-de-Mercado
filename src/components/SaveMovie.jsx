@@ -28,5 +28,3 @@ const SaveMovie = ({ movieId }) => {
 };
 
 export default SaveMovie;
-
-//https://moviesfunctionapp.azurewebsites.net/api/GetMovies?id=

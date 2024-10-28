@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Movies from "./pages/Movies";
 import MovieDetails from "./pages/MovieDetails";
+import Wishlist from "./pages/Wishlist";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/moviedetails" element={<MovieDetails />}>
             <Route path=":id" element={<MovieDetails />} />
           </Route>
+          <Route path="/wishlist" element={<Wishlist />} />
         </Routes>
       </BrowserRouter>
     </>
