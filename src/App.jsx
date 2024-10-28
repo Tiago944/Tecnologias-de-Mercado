@@ -7,6 +7,7 @@ import Homepage from "./pages/Homepage";
 import Movies from "./pages/Movies";
 import MovieDetails from "./pages/MovieDetails";
 import Wishlist from "./pages/Wishlist";
+import Reviews from "./pages/Reviews";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path=":id" element={<MovieDetails />} />
           </Route>
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/reviews" element={<Reviews />} />
         </Routes>
       </BrowserRouter>
     </>
