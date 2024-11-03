@@ -15,7 +15,7 @@ const Banner = ({ data, isLoading, errorMens }) => {
           <div className="hero-banner-details">
             <h1 className="hero-banner-title">{data.title}</h1>
             <p className="hero-banner-description">{data.description}</p>
-            <Link>
+            <Link to={`/moviedetails/${data.id}`}>
               <button className="hero-banner-button">See details</button>
             </Link>
           </div>

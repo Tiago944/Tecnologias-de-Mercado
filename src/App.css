@@ -206,6 +206,8 @@ footer {
   gap: 20px;
   flex-wrap: wrap;
   width: 100%;
+  box-sizing: border-box;
+  padding: 0 2rem 2rem 2rem;
 }
 
 .movie-page {
@@ -260,8 +262,7 @@ footer {
   transition: transform 0.3s ease;
   height: 100%;
 }
-
-.movie-page .movie-info {
+.movie-info {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -327,18 +328,119 @@ svg {
   border-radius: 50px;
   /* box-sizing: border-box; */
   padding: 5px;
+  cursor: pointer;
 }
 
 .movie-details {
   display: flex;
+  gap: 20px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: auto auto;
 }
 
-.movie-details .movie-poster {
-  width: 15rem;
+.movie-details img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.movie-details .movie-info {
+.title-section {
   display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title-section h1 {
+  font-size: 28px;
+  margin: 0;
+  color: #333;
+}
+.movie-details button {
+  background: transparent;
+  border: none;
+}
+
+.movie-details p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+.more-info p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.more-info p strong {
+  font-weight: bold;
+  color: #333;
+}
+
+.directors_actors {
+  display: flex;
+  gap: 4rem;
+}
+
+.directors {
+  margin-top: 20px;
+}
+
+.directors h3 {
+  font-size: 20px;
+  color: #333;
+}
+
+.directors li {
+  font-size: 16px;
+  color: #444;
+  margin-left: 10px;
+}
+
+.actors {
+  margin-top: 20px;
+}
+
+.actors h3 {
+  font-size: 20px;
+  color: #333;
+}
+
+.actors li {
+  font-size: 16px;
+  color: #444;
+  margin-left: 10px;
+}
+
+.related_movies {
+  box-sizing: border-box;
+  padding: 0 30px;
+}
+
+.related_movies .movies-list {
+  justify-content: space-around;
+}
+
+.related_head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviews_page {
+  margin: auto;
+}
+
+.reviews_page form {
+  display: flex;
+  flex-direction: column;
+  max-width: 30rem;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px auto;
+  gap: 10px;
 }
 
 @media screen and (max-width: 520px) {
@@ -399,5 +501,25 @@ svg {
   .movie-card h3 {
     transform: translateY(0);
     opacity: 1;
+  }
+
+  .movie-details img {
+    width: 60%;
+  }
+
+  .movie-details {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movie-details img {
+    width: 150px;
+  }
+
+  .directors_actors {
+    justify-content: space-between;
+    gap: 0;
+    display: flex;
+    flex-wrap: wrap;
   }
 }

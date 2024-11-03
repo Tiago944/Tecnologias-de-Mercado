@@ -9,7 +9,7 @@ const SingleMovie = ({ id }) => {
   const [data, isLoading, errorMesange] = useFetch(url);
 
   return (
-    <div>
+    <div className="single_movie">
       {isLoading && <p>Loading...</p>}
       {errorMesange && <p>{errorMesange}</p>}
       {data && (
