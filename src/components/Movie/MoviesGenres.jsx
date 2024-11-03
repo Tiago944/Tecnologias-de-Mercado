@@ -6,7 +6,8 @@ const MoviesGenres = ({ handleClickGenrer }) => {
   );
 
   return (
-    <>
+    <div className="filter">
+      <h3>Category</h3>
       {isLoading && <p>Loading</p>}
       {errorMens && <p>{errorMens}</p>}
       {data && (
@@ -24,7 +25,7 @@ const MoviesGenres = ({ handleClickGenrer }) => {
           ))}
         </ul>
       )}
-    </>
+    </div>
   );
 };
 

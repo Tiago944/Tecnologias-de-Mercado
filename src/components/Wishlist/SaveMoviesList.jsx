@@ -5,23 +5,20 @@ import SaveMovieFetch from "./SaveMovieFetch";
 
 const SaveMoviesList = () => {
   const [ids, setIds] = useState([]);
-  const [moviesData, setMoviesData] = useState([]);
-  const [errorMesange, setErrorMesange] = useState("");
 
   useEffect(() => {
     // Load saved movie IDs from sessionStorage on component mount
     const savedIds = JSON.parse(sessionStorage.getItem("Movies")) || [];
     setIds(savedIds);
-    setMoviesData([]);
   }, []);
 
   return (
-    <>
+    <div className="movies-list">
       {ids &&
         ids.length > 0 &&
         ids.map((id, index) => <SaveMovieFetch key={index} id={id} />)}
       {ids.length === 0 && <p>Sem Filmes Guardados</p>}
-    </>
+    </div>
   );
 };
 

@@ -3,13 +3,12 @@ import SaveMovie from "../SaveMovie";
 const MovieComp = ({ img, genre, name, movieId }) => {
   return (
     <>
-      <img src={img} alt="" />
-      <div>
+      <img src={img} alt="" className="movie-poster" />
+      <div className="movie-info">
         <p>{genre}</p>
-        <SaveMovie movieId={movieId} />
+        <h3>{name}</h3>
         {/* ^ arranjar problema de redirecionar no lista de filmes, ficar mal ^ */}
       </div>
-      <h3>{name}</h3>
     </>
   );
 };
