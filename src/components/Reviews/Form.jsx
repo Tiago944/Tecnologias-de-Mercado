@@ -13,12 +13,11 @@ const Form = () => {
     event.preventDefault();
     const title = event.target.title;
     const textarea = event.target.textarea;
-    const movie = event.target.movie.id;
+    const movie = Number(event.target.movie.value);
     const rating = event.target.rating;
     const firstName = event.target.firstName;
     const lastName = event.target.lastName;
     const email = event.target.email;
-    debugger;
     if (
       title &&
       textarea &&
@@ -28,9 +27,14 @@ const Form = () => {
       lastName &&
       email
     ) {
-      if (!data.includes(movie)) {
-        console.log(movie);
+      const movieIds = data.map((item) => item.id);
+
+      console.log(movieIds);
+
+      // verifica se o filme existe na api
+      if (!movieIds.includes(movie)) {
         console.log(!data.includes(movie));
+        console.log(movie);
         setMensage("Movie invalided");
         return;
       }
@@ -39,6 +43,16 @@ const Form = () => {
         setMensage("Rating only 1 to 5");
         return;
       }
+
+      const emailVerification = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+      if (!emailVerification.test(email)) {
+        setMensage("Email inválido");
+        return;
+      }
+
+      setMensage("Tudo bem");
+      return;
     }
 
     setMensage("Preencha todos os campos");
@@ -55,7 +69,7 @@ const Form = () => {
         <select name="movie" id="movie">
           {data &&
             data.map((movie, index) => (
-              <option key={index} id={movie.id}>
+              <option key={index} id={movie.id} value={movie.id}>
                 {movie.title}
               </option>
             ))}
