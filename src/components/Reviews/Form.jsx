@@ -9,15 +9,16 @@ const Form = () => {
   const [message, setMensage] = useState();
 
   const handleSubmit = (event) => {
+    setMensage("");
     event.preventDefault();
     const title = event.target.title;
     const textarea = event.target.textarea;
-    const movie = event.target.movie;
+    const movie = event.target.movie.id;
     const rating = event.target.rating;
     const firstName = event.target.firstName;
     const lastName = event.target.lastName;
     const email = event.target.email;
-
+    debugger;
     if (
       title &&
       textarea &&
@@ -27,6 +28,17 @@ const Form = () => {
       lastName &&
       email
     ) {
+      if (!data.includes(movie)) {
+        console.log(movie);
+        console.log(!data.includes(movie));
+        setMensage("Movie invalided");
+        return;
+      }
+
+      if (rating < 1 || rating > 5) {
+        setMensage("Rating only 1 to 5");
+        return;
+      }
     }
 
     setMensage("Preencha todos os campos");
@@ -42,8 +54,10 @@ const Form = () => {
         <label htmlFor="movie">Movie</label>
         <select name="movie" id="movie">
           {data &&
-            data.map((movie) => (
-              <option value={movie.id}>{movie.title}</option>
+            data.map((movie, index) => (
+              <option key={index} id={movie.id}>
+                {movie.title}
+              </option>
             ))}
         </select>
         <label htmlFor="rating">Rating (1 to 5)</label>
