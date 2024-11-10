@@ -203,7 +203,7 @@ footer {
 
 .movies-list {
   display: flex;
-  gap: 20px;
+  gap: 3rem;
   flex-wrap: wrap;
   width: 100%;
   box-sizing: border-box;
@@ -431,16 +431,37 @@ svg {
 
 .reviews_page {
   margin: auto;
+  max-width: 40rem;
+  padding: 10px;
 }
 
 .reviews_page form {
   display: flex;
   flex-direction: column;
   max-width: 30rem;
-  border: 1px solid black;
+
   padding: 10px;
   margin: 10px auto;
   gap: 10px;
+}
+
+form button {
+  background-color: orange;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+#response {
+  background: rgb(211, 211, 211);
+  height: 2rem;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#response p {
+  margin: 0;
 }
 
 @media screen and (max-width: 520px) {

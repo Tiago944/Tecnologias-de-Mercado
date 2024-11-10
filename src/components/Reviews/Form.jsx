@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
+import Comments from "../Comments";
 
 const Form = () => {
   const [data, isLoading, errMen] = useFetch(
@@ -11,13 +12,13 @@ const Form = () => {
   const handleSubmit = (event) => {
     setMensage("");
     event.preventDefault();
-    const title = event.target.title;
-    const textarea = event.target.textarea;
+    const title = event.target.title.value;
+    const textarea = event.target.textarea.value;
     const movie = Number(event.target.movie.value);
-    const rating = event.target.rating;
-    const firstName = event.target.firstName;
-    const lastName = event.target.lastName;
-    const email = event.target.email;
+    const rating = Number(event.target.rating.value);
+    const firstName = event.target.firstName.value;
+    const lastName = event.target.lastName.value;
+    const email = event.target.email.value;
     if (
       title &&
       textarea &&
@@ -33,9 +34,7 @@ const Form = () => {
 
       // verifica se o filme existe na api
       if (!movieIds.includes(movie)) {
-        console.log(!data.includes(movie));
-        console.log(movie);
-        setMensage("Movie invalided");
+        setMensage("Invalid movie");
         return;
       }
 
@@ -44,14 +43,41 @@ const Form = () => {
         return;
       }
 
-      const emailVerification = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+      const emailVerification = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
 
       if (!emailVerification.test(email)) {
         setMensage("Email inválido");
         return;
       }
 
-      setMensage("Tudo bem");
+      const reviewData = {
+        title: title,
+        text: textarea,
+        movie: movie.toString(), // ensure it's a string as in the example
+        email: email,
+        rating: rating.toString(), // ensure it's a string as in the example
+        firstName: firstName,
+        lastName: lastName,
+      };
+
+      // Send POST request
+      fetch("https://moviesfunctionapp.azurewebsites.net/api/SubmitReview", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reviewData),
+      })
+        .then((data) => {
+          console.log("Success:", data);
+          setMensage("Tudo bem");
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          setMensage("Erro ao enviar a crítica");
+        });
+
+      /* setMensage("Tudo bem"); */
       return;
     }
 
@@ -60,6 +86,7 @@ const Form = () => {
 
   return (
     <div className="reviews_page">
+      <h1>Submit Review</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
         <input type="text" name="title" id="title" />
@@ -77,14 +104,17 @@ const Form = () => {
         <label htmlFor="rating">Rating (1 to 5)</label>
         <input type="number" name="rating" id="rating" max={5} min={1} />
         <label htmlFor="firstName">First Name</label>
-        <input type="firstName" id="firstName" />
+        <input type="text" name="firstName" id="firstName" />
         <label htmlFor="lastName">Last Name</label>
-        <input type="lastName" id="lastName" />
+        <input type="text" name="lastName" id="lastName" />
         <label htmlFor="email">Email</label>
         <input type="email" name="email" id="email" />
         <button>Submit Review</button>
         <div id="response">{message && <p>{message}</p>}</div>
       </form>
+      <Comments
+        url={"https://moviesfunctionapp.azurewebsites.net/api/GetReviews"}
+      />
     </div>
   );
 };

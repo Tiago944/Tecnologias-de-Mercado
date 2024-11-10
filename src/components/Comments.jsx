@@ -12,8 +12,9 @@ const Comments = ({ url }) => {
         {errorMessange && <p>{errorMessange}</p>}
         {data &&
           data.length !== 0 &&
-          data.map((review) => (
+          data.map((review, index) => (
             <Comment
+              key={index}
               title={review.title}
               text={review.text}
               movie={review.movie}
