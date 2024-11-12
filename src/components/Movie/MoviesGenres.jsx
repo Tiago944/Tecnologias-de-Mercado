@@ -1,12 +1,12 @@
 import useFetch from "../../hooks/useFetch";
 
-const MoviesGenres = ({ handleClickGenrer }) => {
+const MoviesGenres = ({ handleClickGenrer, show = true }) => {
   const [data, isLoading, errorMens] = useFetch(
     "https://moviesfunctionapp.azurewebsites.net/api/GetGenres"
   );
 
   return (
-    <div className="filter">
+    <div className={`filter  ${show && "show"}`}>
       <h3>Category</h3>
       {isLoading && <p>Loading</p>}
       {errorMens && <p>{errorMens}</p>}

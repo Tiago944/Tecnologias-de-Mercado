@@ -464,6 +464,10 @@ form button {
   margin: 0;
 }
 
+.b-filters {
+  display: none;
+}
+
 @media screen and (max-width: 520px) {
   header {
     display: flex;
@@ -471,6 +475,18 @@ form button {
   }
   .footer-nav ul {
     gap: 10px;
+  }
+  .b-filters {
+    display: block;
+    max-width: 40px;
+    max-height: 50px;
+    border: none;
+    background: transparent;
+  }
+
+  .b-filters img {
+    width: 100%;
+    height: 100%;
   }
 
   .movies-list {
@@ -483,8 +499,23 @@ form button {
     align-items: center;
     padding: 0 2rem;
   }
+
   .filter {
     width: 100%;
+  }
+
+  .filter {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  .filter.show {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .movies {
@@ -498,6 +529,7 @@ form button {
 
   .title-sort {
     margin: 0 0 1rem 0;
+    align-items: center;
   }
 
   .filter ul li {
@@ -525,7 +557,7 @@ form button {
   }
 
   .movie-details img {
-    width: 60%;
+    width: 80%;
   }
 
   .movie-details {
@@ -533,14 +565,14 @@ form button {
     align-items: center;
   }
 
-  .movie-details img {
-    width: 150px;
-  }
-
   .directors_actors {
     justify-content: space-between;
     gap: 0;
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .title-section {
+    justify-content: space-between;
   }
 }
