@@ -46,7 +46,7 @@ const Form = () => {
       const emailVerification = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
 
       if (!emailVerification.test(email)) {
-        setMensage("Email inválido");
+        setMensage("Invalid Email");
         return;
       }
 
@@ -70,18 +70,21 @@ const Form = () => {
       })
         .then((data) => {
           console.log("Success:", data);
-          setMensage("Tudo bem");
+          if (data.status === 200) {
+            setMensage("Review send");
+          } else {
+            setMensage("Unexpected error, try again later");
+          }
         })
         .catch((error) => {
           console.error("Error:", error);
-          setMensage("Erro ao enviar a crítica");
+          setMensage("Erro sending review");
         });
 
-      /* setMensage("Tudo bem"); */
       return;
     }
 
-    setMensage("Preencha todos os campos");
+    setMensage("Fill all the fields");
   };
 
   return (
@@ -110,7 +113,11 @@ const Form = () => {
         <label htmlFor="email">Email</label>
         <input type="email" name="email" id="email" />
         <button>Submit Review</button>
-        <div id="response">{message && <p>{message}</p>}</div>
+        {message && (
+          <div id="response">
+            <p>{message}</p>
+          </div>
+        )}
       </form>
       <Comments
         url={"https://moviesfunctionapp.azurewebsites.net/api/GetReviews"}

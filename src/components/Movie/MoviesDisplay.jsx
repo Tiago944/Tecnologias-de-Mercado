@@ -43,15 +43,15 @@ const MoviesDisplay = () => {
     );
 
     if (genrers.length > 0) {
-      let genrerString =
+      /* let genrerString =
         "%5b" +
         genrers
           .map((genrer) => {
             return `"` + genrer + `"`;
           })
           .join(",") +
-        "%5d";
-      setApiUrl((api) => `${api}&category=${genrerString}`);
+        "%5d"; */
+      setApiUrl((api) => `${api}&category=${JSON.stringify(genrers)}`);
     }
 
     console.log(apiUrl);

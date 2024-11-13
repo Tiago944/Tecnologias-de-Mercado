@@ -7,7 +7,6 @@ const MovieComp = ({ img, genre, name, movieId }) => {
       <div className="movie-info">
         <p>{genre}</p>
         <h3>{name}</h3>
-        {/* ^ arranjar problema de redirecionar no lista de filmes, ficar mal ^ */}
       </div>
     </>
   );

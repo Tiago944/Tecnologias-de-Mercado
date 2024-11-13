@@ -17,7 +17,7 @@ const SaveMoviesList = () => {
       {ids &&
         ids.length > 0 &&
         ids.map((id, index) => <SaveMovieFetch key={index} id={id} />)}
-      {ids.length === 0 && <p>Sem Filmes Guardados</p>}
+      {ids.length === 0 && <p>No movies saves</p>}
     </div>
   );
 };

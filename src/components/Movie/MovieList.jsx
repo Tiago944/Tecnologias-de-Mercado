@@ -25,7 +25,7 @@ const MovieList = ({ url }) => {
             <SaveMovie movieId={movie.id} />
           </div>
         ))}
-      {data && data.length === 0 && <p>Sem filmes</p>}
+      {data && data.length === 0 && <p>No Movies</p>}
       {errorMens && <p>{errorMens}</p>}
     </div>
   );

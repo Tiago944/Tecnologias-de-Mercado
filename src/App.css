@@ -431,7 +431,6 @@ svg {
 
 .reviews_page {
   margin: auto;
-  max-width: 40rem;
   padding: 10px;
 }
 
@@ -466,6 +465,20 @@ form button {
 
 .b-filters {
   display: none;
+}
+
+.notFoundImg {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  margin-top: 10%;
+}
+
+.notFoundImg img {
+  width: 40%;
 }
 
 @media screen and (max-width: 520px) {
@@ -574,5 +587,12 @@ form button {
 
   .title-section {
     justify-content: space-between;
+  }
+  .notFoundImg {
+    margin-top: 50%;
+  }
+
+  .notFoundImg img {
+    min-width: 70%;
   }
 }

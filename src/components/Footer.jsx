@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-nav">
         <Header />
       </div>
-      <p>Direitos</p>
+      <p style={{ color: "#d3d3d3" }}>Direitos: Tiago</p>
     </>
   );
 };
