@@ -481,6 +481,9 @@ form button {
   width: 40%;
 }
 
+form textarea {
+  max-width: 100%;
+}
 @media screen and (max-width: 520px) {
   header {
     display: flex;
